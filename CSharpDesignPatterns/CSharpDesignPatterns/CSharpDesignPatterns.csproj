@@ -51,6 +51,8 @@
     <Compile Include="AbstractFactory\RoadBikeFactory.cs" />
     <Compile Include="AbstractFactory\RoadFrame.cs" />
     <Compile Include="AbstractFactory\RoadSeat.cs" />
+    <Compile Include="Adapter\UltraWheel.cs" />
+    <Compile Include="Adapter\UltraWheelAdapter.cs" />
     <Compile Include="Base\AbstractBike.cs" />
     <Compile Include="Base\AbstractMountainBike.cs" />
     <Compile Include="Base\AbstractRoadBike.cs" />
@@ -70,11 +72,18 @@
     <Compile Include="Builder\MountainBikeDirector.cs" />
     <Compile Include="Builder\RoadBikeBuilder.cs" />
     <Compile Include="Builder\RoadBikeDirector.cs" />
+    <Compile Include="Decorator\AbstractBikeOption.cs" />
+    <Compile Include="Decorator\CustomGripOption.cs" />
+    <Compile Include="Decorator\GoldFrameOption.cs" />
+    <Compile Include="Decorator\LeatherSeatOption.cs" />
+    <Compile Include="Decorator\WhiteTireOption.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Singleton\SerialNumberGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using AbstractFactory;
 using Builder;
+using Singleton;
+using Adapter;
+using Decorator;
 
 namespace CSharpDesignPatterns
 {
@@ -12,8 +15,50 @@ namespace CSharpDesignPatterns
     {
         static void Main(string[] args)
         {
-            BuilderPatternDemo();
+            DecoratorPatternDemo();
+            //AdapterPatternDemo();
+            //SingletonPatternDemo();
+            //BuilderPatternDemo();
             //AbstractFactoryDemo();            
+        }
+
+        private static void DecoratorPatternDemo()
+        {
+            //Standard Touring Bike
+            IBicycle myTourbike = new Touring(new NarrowWheel(24));
+            Console.WriteLine(myTourbike);
+
+            //Touring bike with custom grips
+            myTourbike = new CustomGripOption(myTourbike);
+            Console.WriteLine(myTourbike);
+
+            //Touring bike with leather seat
+            myTourbike = new LeatherSeatOption(myTourbike);
+            Console.WriteLine(myTourbike);
+        }
+
+        private static void AdapterPatternDemo()
+        {
+            IList<IWheel> wheels = new List<IWheel>();
+            wheels.Add(new NarrowWheel(24));
+            wheels.Add(new WideWheel(20));
+            wheels.Add(new NarrowWheel(26));
+            wheels.Add(new UltraWheelAdapter(new UltraWheel(28)));
+
+            foreach (IWheel wheel in wheels)
+            {
+                Console.WriteLine(wheel);
+            }
+        }
+
+        private static void SingletonPatternDemo()
+        {
+            SerialNumberGenerator generator = SerialNumberGenerator.Instance;
+            //You need the above line to use the below line
+            Console.WriteLine("Next serial "+ generator.NextSerial);
+            //Above and below do same thing, just different ways to type it - but Sr. Dev would probably say to use below
+            Console.WriteLine("Next serial "+ SerialNumberGenerator.Instance.NextSerial);//this combines above 2 lines into 1
+            Console.WriteLine("Next serial "+ generator.NextSerial);
         }
 
         private static void BuilderPatternDemo()
