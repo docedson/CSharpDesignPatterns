@@ -77,6 +77,15 @@
     <Compile Include="Decorator\GoldFrameOption.cs" />
     <Compile Include="Decorator\LeatherSeatOption.cs" />
     <Compile Include="Decorator\WhiteTireOption.cs" />
+    <Compile Include="Facade\BikeFacade.cs" />
+    <Compile Include="Facade\Documentation.cs" />
+    <Compile Include="Facade\Registration.cs" />
+    <Compile Include="Iterator\MountainBikeRange.cs" />
+    <Compile Include="Iterator\RoadBikeRange.cs" />
+    <Compile Include="Observer\GearBox.cs" />
+    <Compile Include="Observer\ISpeedChanged.cs" />
+    <Compile Include="Observer\SpeedMonitor.cs" />
+    <Compile Include="Observer\Speedometer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Singleton\SerialNumberGenerator.cs" />

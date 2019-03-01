@@ -45,5 +45,19 @@ namespace CSharpDesignPatterns
             return this.GetType().Name + " Bicycle Color is " + _color + " and cost $" +Price;
         }
 
+        public virtual void CleanFrame()
+        {
+            Console.WriteLine("Cleaning Frame...");
+        }
+
+        public virtual void AirTires()
+        {
+            Console.WriteLine("Airing up tires...");
+        }
+
+        public virtual void TestRide()
+        {
+            Console.WriteLine("Taking bike for a test ride...");
+        }
     }
 }
