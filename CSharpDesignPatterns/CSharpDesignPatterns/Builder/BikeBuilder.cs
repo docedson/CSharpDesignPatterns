@@ -9,7 +9,7 @@ namespace Builder
 {
     public abstract class BikeBuilder
     {
-        //Property of IBicycle called Bicycle - iow, Bicycle is a property
+        //Property of IBicycle called Bicycle
         public abstract IBicycle Bicycle { get; }
 
         /*

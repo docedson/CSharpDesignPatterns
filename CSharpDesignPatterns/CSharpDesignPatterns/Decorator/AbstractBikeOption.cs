@@ -7,10 +7,14 @@ using CSharpDesignPatterns;
 
 namespace Decorator
 {
+    //Abstract class that demonstrates the Decorator pattern
     public abstract class AbstractBikeOption : AbstractBike
     {
+        //Variable of IBicycle that is used to get the active bicycle
         protected internal IBicycle decoratedBike;
-        //below this is a constructor
+
+        /*Constructor that takes 1 parameter. Also passes the value to its parent through the base declaration
+         * Below this is a constructor*/
         public AbstractBikeOption(IBicycle bicycle)
             : base(BikeColor.Chrome, bicycle.GetWheel)
         {

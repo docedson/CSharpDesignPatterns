@@ -9,6 +9,8 @@ namespace Builder
 {
     public class MountainBikeDirector : BikeDirector
     {
+        /*Method overriden from BikeDirector. Takes the Builder paramet and uses that parameter to call
+         * methods and return Bicycle.*/
         public override IBicycle Build(BikeBuilder builder)
         {
             builder.BuildHandleBars();

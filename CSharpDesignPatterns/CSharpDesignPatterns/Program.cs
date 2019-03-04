@@ -15,8 +15,9 @@ using Observer;
 
 namespace CSharpDesignPatterns
 {
+    //Program Etnry point of the application
     class Program
-    {
+    {        
         static void Main(string[] args)
         {
             ObserverPatternDemo();
@@ -59,7 +60,6 @@ namespace CSharpDesignPatterns
             {
                 Console.WriteLine(bicycle);
             }
-
         }
 
         private static void IteratorPatternDemo()
@@ -88,28 +88,35 @@ namespace CSharpDesignPatterns
             facade.PrepareForSale(new Downhill(BikeColor.Red, new WideWheel(20)));
         }
 
+        //Decorator Design Pattern Method
         private static void DecoratorPatternDemo()
         {
             //Standard Touring Bike taht displays their result to the console
             IBicycle myTourbike = new Touring(new NarrowWheel(24));
             Console.WriteLine(myTourbike);
 
-            //Touring bike with custom grips added to the total price and their result is 
+            //Touring bike with custom grips added to the total price and their result is printed to the console
             myTourbike = new CustomGripOption(myTourbike);
             Console.WriteLine(myTourbike);
 
-            //Touring bike with leather seat
+            //Touring bike with leather seat added to the existing total and their result is printed to the console
             myTourbike = new LeatherSeatOption(myTourbike);
             Console.WriteLine(myTourbike);
         }
 
+        //Adapter Design Pattern Demo Method
+
         private static void AdapterPatternDemo()
         {
+            /*Collection instance of IList that gets created from the generic List.
+             * Adds in 3 base objects and 1 simulated 3rd party object*/
             IList<IWheel> wheels = new List<IWheel>();
             wheels.Add(new NarrowWheel(24));
             wheels.Add(new WideWheel(20));
             wheels.Add(new NarrowWheel(26));
             wheels.Add(new UltraWheelAdapter(new UltraWheel(28)));
+
+            //Iterates through the list and pritns the results to the console
 
             foreach (IWheel wheel in wheels)
             {
@@ -117,27 +124,43 @@ namespace CSharpDesignPatterns
             }
         }
 
+        //Singleton Design Pattern Demo Method
         private static void SingletonPatternDemo()
         {
+
+            /*Object instance of SerialNumberGenerator is created and is assigned an instance.
+             * This instance either returns an existing one or creates a new one in its class*/
+
             SerialNumberGenerator generator = SerialNumberGenerator.Instance;
             //You need the above line to use the below line
+
+            //Print out the serial numbers to the console
             Console.WriteLine("Next serial "+ generator.NextSerial);
             //Above and below do same thing, just different ways to type it - but Sr. Dev would probably say to use below
             Console.WriteLine("Next serial "+ SerialNumberGenerator.Instance.NextSerial);//this combines above 2 lines into 1
             Console.WriteLine("Next serial "+ generator.NextSerial);
         }
 
+        //Builder Design Pattern Demo Method
         private static void BuilderPatternDemo()
         {
+            /*Object instance of AbstractMountainBike created using its child class Downhill.
+             * Its constructor takes 2 arguments*/
             AbstractMountainBike mountainBike = new
                 Downhill(BikeColor.Green, new WideWheel(24));
 
+            /*Both BikeBuilder and BikeDirector object instances are created.
+             * Build passes the object above into its constructor*/
             BikeBuilder builder = new MountainBikeBuilder(mountainBike);
             BikeDirector director = new MountainBikeDirector();
+
+            /*Interface object of IBicycle is assigned the value of the Build method called from the
+             * BikeDirector object above. Its output is displayed on the console*/
             IBicycle bicycle = director.Build(builder);
             Console.WriteLine(bicycle);
         }
 
+        //Abstract Factory Design Pattern Demo Method
         private static void AbstractFactoryDemo()  //has to be static to call from main
         {
             /*
